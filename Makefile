@@ -7,12 +7,6 @@ ESLINT = node_modules/.bin/eslint
 UGLIFYJS = node_modules/.bin/uglifyjs
 
 ##
-# Files
-##
-
-SRC = $(wildcard lib/*.js)
-
-##
 # Tasks
 ##
 
@@ -35,7 +29,7 @@ distclean: clean
 .PHONY: distclean
 
 # Build analytics.js.
-analytics.js: install $(SRC) package.json
+analytics.js: install index.js package.json
 	@$(WEBPACK)
 
 # Build minified analytics.js.
