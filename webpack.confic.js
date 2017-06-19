@@ -1,7 +1,7 @@
 module.exports = {
   devtool: "#inline-source-map",
   entry: [
-    './lib/index.js'
+    './index.js'
   ],
 
   output: {

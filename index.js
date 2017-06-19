@@ -101,7 +101,7 @@ Object.keys(Integrations).forEach(function(name) {
 
 analytics.initialize({
     'Google Analytics': {
-        trackingId: 'UA-XXXXXXXXX-1',
+        trackingId: 'UA-XXXXXXXXX-X',
     }
 });
 
