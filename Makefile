@@ -2,7 +2,7 @@
 # Binaries
 ##
 
-BROWSERIFY = node_modules/.bin/browserify
+WEBPACK = node_modules/.bin/webpack --config webpack.confic.js 
 ESLINT = node_modules/.bin/eslint
 UGLIFYJS = node_modules/.bin/uglifyjs
 
@@ -36,7 +36,7 @@ distclean: clean
 
 # Build analytics.js.
 analytics.js: install $(SRC) package.json
-	@$(BROWSERIFY) lib/index.js --standalone analytics > analytics.js
+	@$(WEBPACK)
 
 # Build minified analytics.js.
 analytics.min.js: analytics.js
