@@ -3,3 +3,4 @@ node_modules
 npm-debug.log
 analytics.js
 analytics.min.js
+package-lock.json
