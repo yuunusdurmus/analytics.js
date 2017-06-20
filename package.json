@@ -11,6 +11,7 @@
   ],
   "main": "analytics.js",
   "scripts": {
+    "only-build": "$(npm bin)/webpack --config webpack.confic.js",
     "build": "make build",
     "clean": "make clean",
     "test": "make test"
