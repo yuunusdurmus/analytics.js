@@ -1,17 +1,21 @@
 var analytics = require('@segment/analytics.js-core');
 
-var Integrations = {
-  'google-analytics': require('@segment/analytics.js-integration-google-analytics')
-}
+var configurations = [
+    {
+        package: require('@segment/analytics.js-integration-google-analytics'),
+        name: 'Google Analytics',
+        settings: {
+            trackingId: 'UA-XXXXXXXXX-X' 
+        }
+    }
+]
 
-Object.keys(Integrations).forEach(function(name) {
-  analytics.use(Integrations[name]);
-});
+var initializeObj = {};
 
-analytics.initialize({
-  'Google Analytics': {
-    trackingId: 'UA-XXXXXXXXX-X' 
-  }
-});
+configurations.forEach(function(config){
+    analytics.use(config.package);
+    initializeObj[config.name] = config.settings;
+})
 
+analytics.initialize(initializaObj);
 analytics.page();
