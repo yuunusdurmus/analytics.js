@@ -27,9 +27,9 @@ If you're not sure where to open an issue, feel free to open an issue against th
 Released under the [MIT license].
 
 ## Other adapter library
-  
+
 ./package.json
-  
+```  
   "dependencies": {
     "@segment/analytics.js-integration-adroll": "git+https://github.com/segment-integrations/analytics.js-integration-adroll.git",
     "@segment/analytics.js-integration-adwords": "git+https://github.com/segment-integrations/analytics.js-integration-adwords.git",
@@ -123,9 +123,9 @@ Released under the [MIT license].
     "@segment/analytics.js-integration-wootric": "git+https://github.com/segment-integrations/analytics.js-integration-wootric.git",
     "@segment/analytics.js-integration-yandex-metrica": "git+https://github.com/segment-integrations/analytics.js-integration-yandex-metrica.git"
   },
-
+```
 ./index.js
-
+```
 var Integrations = {
   'adroll': require('@segment/analytics.js-integration-adroll'),
   'adwords': require('@segment/analytics.js-integration-adwords'),
@@ -219,7 +219,7 @@ var Integrations = {
   'wootric': require('@segment/analytics.js-integration-wootric'),
   'yandex-metrica': require('@segment/analytics.js-integration-yandex-metrica')
 }
-
+```
 
 
     
