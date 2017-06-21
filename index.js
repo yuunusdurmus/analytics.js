@@ -1,21 +1,14 @@
-var analytics = require('@segment/analytics.js-core');
+var Pages = require('./page-specific/pages');
 
-var configurations = [
-    {
-        package: require('@segment/analytics.js-integration-google-analytics'),
-        name: 'Google Analytics',
-        settings: {
-            trackingId: 'UA-XXXXXXXXX-X' 
+window.currentPage = 'HOME';
+
+function init() {
+    Pages.list.forEach(function(page){
+        if(page.selector == window.currentPage){
+            page.tracker();
         }
-    }
-]
+    })
+}
 
-var initializeObj = {};
+init();
 
-configurations.forEach(function(config){
-    analytics.use(config.package);
-    initializeObj[config.name] = config.settings;
-})
-
-analytics.initialize(initializaObj);
-analytics.page();
