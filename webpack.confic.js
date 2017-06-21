@@ -5,7 +5,7 @@ module.exports = {
     ],
 
     output: {
-        filename: 'analytics.js',
+        filename: './dist/analytics.js',
         publicPath: './',
         library: 'analytics',
         libraryTarget: 'umd'
