@@ -1,5 +1,6 @@
 var analytics = require('../lib/analytics');
 
+/*
 var listId = 'hot_deals_1';
 var category = 'Deals';
 var products = [
@@ -20,6 +21,9 @@ var products = [
         category: 'Games'
     }
 ]
+*/
+
+/*
 var filters = [
     {
         type: 'department',
@@ -36,16 +40,6 @@ var sorts = [
       value: 'desc'
     }
 ]
-
-
-function listViewied(listId, catagory, products) {
-    analytics.track('Product List Viewed',{
-        list_id: listId,
-        category: catagory,
-        products: products
-    });
-}
-
 function listFiltered(listId, filters, sorts, products) {
     analytics.track('Product List Filtered',{
         list_id: listId,
@@ -54,12 +48,27 @@ function listFiltered(listId, filters, sorts, products) {
         products: products
     });
 }
+*/
+
+function listViewied(listId, catagory, products) {
+    analytics.track('Product List Viewed',{
+        list_id: listId,
+        category: catagory,
+        products: products
+    });
+};
 
 module.exports = {
     initTracker: function (){
-        analytics.page('Search Result Page');
-        listViewied(listId, category, products);
-        listFiltered(listId, filters, sorts, products);
+        analytics.page('Search Result Page');        
+        var pageData = window.ANALYTICS;
+        listViewied(
+            pageData.listId, 
+            pageData.category, 
+            pageData.products
+        );
     }
-}
+};
+
+
 

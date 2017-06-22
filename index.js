@@ -1,14 +1,13 @@
 var Pages = require('./page-specific/pages');
 
-window.currentPage = 'HOME';
-
 function init() {
     Pages.list.forEach(function(page){
-        if(page.selector == window.currentPage){
+        if(page.selector == 'any'){
+            page.tracker();
+        }else if(page.selector == window.GLOBALS.page){
             page.tracker();
         }
     })
 }
 
 init();
-

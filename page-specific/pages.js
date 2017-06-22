@@ -1,16 +1,28 @@
 module.exports = {
     list: [
         {
-            selector: 'HOME',
+            selector: 'index',
             tracker: require('./home-page').initTracker
         },
         {
-            selector :'SERCH_RESULT',
+            selector :'search',
+            tracker: require('./search-result').initTracker
+        },
+        {
+            selector :'product',
             tracker: require('./product-detail').initTracker
         },
         {
-            selector :'PRODUCT_DETAIL',
-            tracker: require('./search-result').initTracker
+            selector :'basket',
+            tracker: require('./basket-page').initTracker
+        },
+        {
+            selector :'checkout',
+            tracker: require('./checkout-page').initTracker
+        },
+        {
+            selector: 'any',
+            tracker: require('./basket-action').initTracker
         }
     ]
 
