@@ -1,5 +1,25 @@
 var analytics = require('../lib/analytics');
 
+function listViewied(listId, catagory, products) {
+    analytics.track('Product List Viewed',{
+        list_id: listId,
+        category: catagory,
+        products: products
+    });
+};
+
+module.exports = {
+    initTracker: function (){
+        analytics.page('Search Result Page');        
+        var pageData = window.ANALYTICS;
+        listViewied(
+            pageData.listId, 
+            pageData.category, 
+            pageData.products
+        );
+    }
+};
+
 /*
 var listId = 'hot_deals_1';
 var category = 'Deals';
@@ -49,26 +69,3 @@ function listFiltered(listId, filters, sorts, products) {
     });
 }
 */
-
-function listViewied(listId, catagory, products) {
-    analytics.track('Product List Viewed',{
-        list_id: listId,
-        category: catagory,
-        products: products
-    });
-};
-
-module.exports = {
-    initTracker: function (){
-        analytics.page('Search Result Page');        
-        var pageData = window.ANALYTICS;
-        listViewied(
-            pageData.listId, 
-            pageData.category, 
-            pageData.products
-        );
-    }
-};
-
-
-

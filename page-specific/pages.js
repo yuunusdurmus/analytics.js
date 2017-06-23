@@ -1,8 +1,8 @@
 module.exports = {
     list: [
         {
-            selector: 'index',
-            tracker: require('./home-page').initTracker
+            selector: 'any',
+            tracker: require('./page-viewed').initTracker
         },
         {
             selector :'search',

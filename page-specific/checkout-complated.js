@@ -1,31 +1,35 @@
 var analytics = require('../lib/analytics');
 
-function cartViewed(cartId, products){
-    analytics.track('Cart Viewed', {
-        cart_id: cartId,
-        products: products
-    });
+function orderComplated(data){
+    analytics.track('Checkout Step Completed', data);
 }
 
 module.exports = {
     initTracker: function (){
         var pageData = window.ANALYTICS;
-        cartViewed(
-            pageData.cartId,
-            pageData.products
-        )
+        orderComplated(pageData.data)
     }
 }
 
 /*
-var cartId = 'd92jd29jd92jd29j92d92jd'
-var products = [
+var orderComplated = {
+  checkout_id: 'fksdjfsdjfisjf9sdfjsd9f',
+  order_id: '50314b8e9bcf000000000000',
+  affiliation: 'Google Store',
+  total: 30,
+  revenue: 25,
+  shipping: 3,
+  tax: 2,
+  discount: 2.5,
+  coupon: 'hasbros',
+  currency: 'USD',
+  products: [
     {
       product_id: '507f1f77bcf86cd799439011',
       sku: '45790-32',
       name: 'Monopoly: 3rd Edition',
       price: 19,
-      position: 1,
+      quantity: 1,
       category: 'Games'
     },
     {
@@ -33,8 +37,8 @@ var products = [
       sku: '46493-32',
       name: 'Uno Card Game',
       price: 3,
-      position: 2,
+      quantity: 2,
       category: 'Games'
     }
-  ]
 */
+

@@ -1,5 +1,17 @@
 var analytics = require('../lib/analytics')
 
+function productViewed(data) {
+    analytics.track('Product Viewed', data);
+}
+
+module.exports = {
+    initTracker: function (){
+        analytics.page('Product Detail Page');
+        var pageData = window.ANALYTICS;
+        productViewed(pageData.data);
+    }
+}
+
 /*
 var data = {
   product_id: '507f1f77bcf86cd799439011',
@@ -16,16 +28,3 @@ var data = {
   value: 18.99
 }
 */
-
-function productViewed(data) {
-    analytics.track('Product Viewed', data);
-}
-
-module.exports = {
-    initTracker: function (){
-        analytics.page('Product Detail Page');
-        var pageData = window.ANALYTICS;
-        productViewed(pageData.data);
-    }
-}
-

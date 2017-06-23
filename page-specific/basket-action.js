@@ -1,43 +1,25 @@
 var analytics = require('../lib/analytics');
 
-var event = null
-
-
 function productAdded(data){
-    console.log(data);
     analytics.track('Product Added',data);
 }
-/*
+
 function productRemoved(data){
-    analytics.track('Product Added',data);    
+    analytics.track('Product Removed',data); 
 }
-*/
-
-function setEvents(){
-    event = new Event('productAdded');
-    document.addEventListener('productAdded', function(){
-        console.log('listener')
-        productAdded({})
-    })
-}
-
 
 module.exports = {
     initTracker: function (){
-        setEvents();
-
-        window.basketEvent = {
-            productAdded: function(){
-                document.dispatchEvent(event);
-            }
+        window.analytics = {
+            productAdded: productAdded,
+            productRemoved: productRemoved
         }
-
-
     }
 }
 
-
 /*
+ * example data structure
+
 var data = {
   cart_id: 'skdjsidjsdkdj29j',
   product_id: '507f1f77bcf86cd799439011',
@@ -51,4 +33,5 @@ var data = {
   coupon: 'MAYDEALS',
   position: 3
 } 
+
 */
