@@ -22,14 +22,15 @@ function arrayToPushAnalytics(arr) {
 window.AnalyticsArray = function(arr) {
     var array = arr || [];
     array.push = function(){
-        arrayToPushAnalytics([arguments[0]])
-        //return Array.prototype.push.apply(this, arguments);
+        Array.prototype.push.apply(this, arguments);
+        arrayToPushAnalytics(this);
+        return true;
     }
     
     return array;
 };
 
-
 window.initAnalytics = function(arr) {
    arrayToPushAnalytics(arr)
 }
+
