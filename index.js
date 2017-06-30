@@ -33,4 +33,3 @@ window.AnalyticsArray = function(arr) {
 window.initAnalytics = function(arr) {
    arrayToPushAnalytics(arr)
 }
-
